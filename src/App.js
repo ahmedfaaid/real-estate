@@ -1,10 +1,12 @@
 import React from 'react';
-import './App.css';
+import Header from './components/Header';
+import Map from './components/Map/Map';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Real Estate Site</h1>
+    <div>
+      <Header />
+      <Map />
     </div>
   );
 }
