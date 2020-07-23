@@ -5,7 +5,7 @@ export const StyledNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  box-shadow: 0px 4px 4px -1px rgba(0,0,0,0.55);
+  box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.55);
 `;
 
 export const StyledButton = styled.button`
@@ -23,7 +23,7 @@ export const StyledButton = styled.button`
   &:focus {
     outline: none;
   }
-  
+
   div {
     width: 2rem;
     height: 0.25rem;
@@ -33,4 +33,4 @@ export const StyledButton = styled.button`
     position: relative;
     transform-origin: 1px;
   }
-`
+`;

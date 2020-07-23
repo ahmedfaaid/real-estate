@@ -1,13 +1,20 @@
 import React from 'react';
-import Header from './components/Header';
-import Map from './components/Map/Map';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Add from './pages/Add/Add';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Map />
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/add'>
+          <Add />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

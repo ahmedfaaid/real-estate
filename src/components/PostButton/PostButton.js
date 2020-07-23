@@ -1,12 +1,8 @@
 import React from 'react';
-import { StyledButton } from './PostButton.styled';
+import StyledLink from './PostButton.styled';
 
 function PostButton() {
-  return (
-    <StyledButton>
-      Post Your Ad
-    </StyledButton>
-  )
+  return <StyledLink to='/add'>Post Your Ad</StyledLink>;
 }
 
-export default PostButton
+export default PostButton;
