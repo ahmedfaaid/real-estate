@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
+import locations from '../../data';
 
 function Map() {
   const [viewport, setViewport] = useState({
@@ -18,7 +19,19 @@ function Map() {
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       mapStyle='mapbox://styles/mapbox/streets-v11'
       style={{ position: 'relative' }}
-    />
+    >
+      {locations.map(location => (
+        <Marker
+          key={location.phone}
+          latitude={location.lat}
+          longitude={location.lng}
+        >
+          <button>
+            <img src='../../canada.svg' alt='Marker' />
+          </button>
+        </Marker>
+      ))}
+    </ReactMapGL>
   );
 }
 
