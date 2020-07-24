@@ -71,10 +71,9 @@ export const StyledSubmit = styled.button`
   color: ${({ theme }) => theme.white};
   border: none;
   border-radius: 2.5rem;
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
+  width: min-content;
+  margin: 30px auto 0 auto;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.55);
   text-decoration: none;
 `;
