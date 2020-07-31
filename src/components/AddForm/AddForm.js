@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -9,6 +9,13 @@ import {
 } from './AddForm.styled';
 
 function AddForm() {
+  const [formData, setFormData] = useState({});
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <div>
       <StyledForm>
@@ -25,6 +32,7 @@ function AddForm() {
             type='text'
             name='title'
             id='title'
+            onChange={handleChange}
             placeholder='Enter property title'
           />
         </StyledField>
@@ -34,12 +42,14 @@ function AddForm() {
             type='text'
             name='street'
             id='street'
+            onChange={handleChange}
             placeholder='Enter street address'
           />
           <input
             type='text'
             name='line2'
             id='line2'
+            onChange={handleChange}
             placeholder='Address line 2'
           />
           <input type='text' name='city' id='city' placeholder='City' />
@@ -47,12 +57,14 @@ function AddForm() {
             type='text'
             name='province'
             id='province'
+            onChange={handleChange}
             placeholder='Province'
           />
           <input
             type='text'
             name='postCode'
             id='postCode'
+            onChange={handleChange}
             placeholder='Postal/Zip Code'
           />
         </StyledField>
@@ -61,6 +73,7 @@ function AddForm() {
           <textarea
             name='description'
             id='description'
+            onChange={handleChange}
             placeholder='Enter a description for your property'
           />
         </StyledField>
