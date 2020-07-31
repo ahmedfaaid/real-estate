@@ -36,7 +36,7 @@ export const StyledFileBtn = styled.div`
 `;
 
 export const StyledField = styled.div`
-  margin: 15px 0;
+  margin: 10px 0;
 
   & label {
     display: block;
@@ -50,7 +50,7 @@ export const StyledField = styled.div`
     border: none;
     border-bottom: 1px solid #cccccc;
     width: 100%;
-    margin: auto;
+    margin: 10px auto;
     padding: 10px 5px;
   }
 

@@ -20,21 +20,40 @@ function AddForm() {
           <input type='file' name='image' id='image' />
         </StyledFileBtn>
         <StyledField>
-          <label htmlFor='address'>Property Address</label>
-          <input
-            type='text'
-            name='address'
-            id='address'
-            placeholder='Enter property address'
-          />
-        </StyledField>
-        <StyledField>
           <label htmlFor='title'>Property Title</label>
           <input
             type='text'
             name='title'
             id='title'
             placeholder='Enter property title'
+          />
+        </StyledField>
+        <StyledField>
+          <label htmlFor='address'>Property Address</label>
+          <input
+            type='text'
+            name='street'
+            id='street'
+            placeholder='Enter street address'
+          />
+          <input
+            type='text'
+            name='line2'
+            id='line2'
+            placeholder='Address line 2'
+          />
+          <input type='text' name='city' id='city' placeholder='City' />
+          <input
+            type='text'
+            name='province'
+            id='province'
+            placeholder='Province'
+          />
+          <input
+            type='text'
+            name='postCode'
+            id='postCode'
+            placeholder='Postal/Zip Code'
           />
         </StyledField>
         <StyledField>
