@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_LISTING } from '../../util/mutations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -11,14 +13,34 @@ import {
 function AddForm() {
   const [formData, setFormData] = useState({});
 
+  const [createListing] = useMutation(ADD_LISTING, {
+    onCompleted: listing => listing,
+  });
+
   const handleChange = event => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleSubmit = async event => {
+    event.preventDefault();
+
+    const createdListing = await createListing({
+      variables: {
+        input: {
+          ...formData,
+        },
+      },
+    });
+
+    setFormData({});
+
+    return createdListing;
+  };
+
   return (
     <div>
-      <StyledForm>
+      <StyledForm onSubmit={handleSubmit}>
         <StyledFileBtn>
           <label htmlFor='image'>
             <FontAwesomeIcon icon={faImages} />
@@ -40,19 +62,25 @@ function AddForm() {
           <label htmlFor='address'>Property Address</label>
           <input
             type='text'
-            name='street'
-            id='street'
+            name='address1'
+            id='address1'
             onChange={handleChange}
             placeholder='Enter street address'
           />
           <input
             type='text'
-            name='line2'
-            id='line2'
+            name='address2'
+            id='address2'
             onChange={handleChange}
             placeholder='Address line 2'
           />
-          <input type='text' name='city' id='city' placeholder='City' />
+          <input
+            type='text'
+            name='city'
+            id='city'
+            onChange={handleChange}
+            placeholder='City'
+          />
           <input
             type='text'
             name='province'
@@ -62,8 +90,8 @@ function AddForm() {
           />
           <input
             type='text'
-            name='postCode'
-            id='postCode'
+            name='postalCode'
+            id='postalCode'
             onChange={handleChange}
             placeholder='Postal/Zip Code'
           />
