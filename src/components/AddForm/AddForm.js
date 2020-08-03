@@ -33,6 +33,10 @@ function AddForm() {
       },
     });
 
+    // TODO: Geocode address to return long/lat
+    // TODO: Push to added listing page
+    // TODO: Add image upload
+
     setFormData({});
 
     return createdListing;
