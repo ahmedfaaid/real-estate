@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_LISTING } from '../../util/mutations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
+import { geocode } from '../../util/geocode';
 import {
   StyledForm,
   StyledFileBtn,
@@ -25,15 +26,18 @@ function AddForm() {
   const handleSubmit = async event => {
     event.preventDefault();
 
+    const [longitude, latitude] = await geocode(formData);
+
     const createdListing = await createListing({
       variables: {
         input: {
           ...formData,
+          longitude,
+          latitude,
         },
       },
     });
 
-    // TODO: Geocode address to return long/lat
     // TODO: Push to added listing page
     // TODO: Add image upload
 
