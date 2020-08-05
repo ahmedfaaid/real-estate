@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Add from './pages/Add/Add';
+import Listings from './pages/Listings/Listings';
 
 function App() {
   return (
@@ -9,6 +10,9 @@ function App() {
       <Switch>
         <Route path='/add'>
           <Add />
+        </Route>
+        <Route path='/listings'>
+          <Listings />
         </Route>
         <Route path='/'>
           <Home />
