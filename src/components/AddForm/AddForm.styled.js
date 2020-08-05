@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const FormContainer = styled.div`
+  width: 100%;
+
+  @media (min-width: 426px) {
+    width: 500px;
+    margin: 20px auto;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+`;
+
 export const StyledForm = styled.form`
   padding: 20px;
 `;

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
 import { geocode } from '../../util/geocode';
 import {
+  FormContainer,
   StyledForm,
   StyledFileBtn,
   StyledField,
@@ -47,7 +48,7 @@ function AddForm() {
   };
 
   return (
-    <div>
+    <FormContainer>
       <StyledForm onSubmit={handleSubmit}>
         <StyledFileBtn>
           <label htmlFor='image'>
@@ -115,7 +116,7 @@ function AddForm() {
         </StyledField>
         <StyledSubmit type='submit'>Submit</StyledSubmit>
       </StyledForm>
-    </div>
+    </FormContainer>
   );
 }
 
