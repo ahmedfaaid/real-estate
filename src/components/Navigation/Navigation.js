@@ -14,7 +14,7 @@ function Navigation({ menuOpen, setMenuOpen }) {
           LOGO
         </Link>
       </div>
-      <StyledButton onClick={menuOpenHandler}>
+      <StyledButton menuOpen={menuOpen} onClick={menuOpenHandler}>
         <div />
         <div />
         <div />
