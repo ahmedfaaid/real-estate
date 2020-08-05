@@ -32,5 +32,21 @@ export const StyledButton = styled.button`
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
+
+    :first-child {
+      transform: ${({ menuOpen }) =>
+        menuOpen ? 'rotate(45deg)' : 'rotate(0)'};
+    }
+
+    :nth-child(2) {
+      opacity: ${({ menuOpen }) => (menuOpen ? '0' : '1')};
+      transform: ${({ menuOpen }) =>
+        menuOpen ? 'translateX(20px)' : 'translateX(0)'};
+    }
+
+    :nth-child(3) {
+      transform: ${({ menuOpen }) =>
+        menuOpen ? 'rotate(-45deg)' : 'rotate(0)'};
+    }
   }
 `;
