@@ -19,6 +19,8 @@ export const StyledPopup = styled.div`
 
   & h4 {
     font-size: 14px;
+    fonst-style: italics;
+    color: ${({ theme }) => theme.grey};
   }
 
   & p {

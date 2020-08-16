@@ -4,16 +4,15 @@ import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import { StyledMarker, StyledPopup } from './Map.styled';
-import locations from '../../data';
 
-function Map() {
+function Map({ listings }) {
   const [viewport, setViewport] = useState({
     latitude: 43.653226,
     longitude: -79.3831843,
     zoom: 12,
   });
 
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedListing, setSelectedListing] = useState(null);
 
   return (
     <ReactMapGL
@@ -34,35 +33,36 @@ function Map() {
       >
         <NavigationControl showCompass={false} />
       </div>
-      {locations.map(location => (
+      {listings.map(listing => (
         <Marker
-          key={location.address}
-          latitude={location.lat}
-          longitude={location.lng}
+          key={listing.id}
+          latitude={listing.latitude}
+          longitude={listing.longitude}
         >
           <StyledMarker
             onClick={e => {
               e.preventDefault();
-              setSelectedLocation(location);
+              setSelectedListing(listing);
             }}
           >
             <FontAwesomeIcon icon={faMapMarker} />
           </StyledMarker>
         </Marker>
       ))}
-      {selectedLocation && (
+      {selectedListing && (
         <Popup
-          latitude={selectedLocation.lat}
-          longitude={selectedLocation.lng}
+          latitude={selectedListing.latitude}
+          longitude={selectedListing.longitude}
           onClose={() => {
-            setSelectedLocation(null);
+            setSelectedListing(null);
           }}
         >
           <StyledPopup>
-            <h3>{selectedLocation.agency}</h3>
-            <h4>{selectedLocation.program}</h4>
-            <p>{selectedLocation.address}</p>
-            <p>{selectedLocation.phone}</p>
+            <h3>{selectedListing.title}</h3>
+            <h4>{selectedListing.description.substring(0, 20)}</h4>
+            <p>{selectedListing.address1}</p>
+            {selectedListing.address2 && <p>{selectedListing.address2}</p>}
+            <p>{selectedListing.city}</p>
           </StyledPopup>
         </Popup>
       )}

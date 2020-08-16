@@ -14,7 +14,7 @@ export default function Listings() {
 
   return (
     <Layout>
-      <h1>Welcome to listings</h1>
+      <h1 style={{ textAlign: 'center' }}>Listings</h1>
       {data.listings.map(listing => (
         <Link
           to={`/${listing.id}`}
