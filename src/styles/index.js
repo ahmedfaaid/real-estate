@@ -25,4 +25,5 @@ export const theme = {
   yellow: '#f1d302',
   black: '#020100',
   grey: '#cccccc',
+  shadow: '0 5px 10px -5px',
 };

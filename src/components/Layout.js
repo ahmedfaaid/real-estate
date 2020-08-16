@@ -5,7 +5,7 @@ function Layout({ children }) {
   return (
     <>
       <Header />
-      {children}
+      <div style={{ width: '100%' }}>{children}</div>
     </>
   );
 }

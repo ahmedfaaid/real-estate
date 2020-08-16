@@ -5,6 +5,7 @@ import SideMenu from './SideMenu/SideMenu';
 
 const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.red};
+  max-width: 100%;
 `;
 
 function Header() {

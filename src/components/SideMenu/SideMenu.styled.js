@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledSideMenu = styled.aside`
-  display: flex;
+  display: ${({ menuOpen }) => (menuOpen ? 'flex' : 'none')};
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.red};
