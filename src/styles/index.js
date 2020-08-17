@@ -1,9 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
-/* Replace line below with react-helmet injection */
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
-
   html, body {
     margin: 0;
     padding: 0;
@@ -25,5 +22,5 @@ export const theme = {
   yellow: '#f1d302',
   black: '#020100',
   grey: '#cccccc',
-  shadow: '0 5px 10px -5px',
+  shadow: '0 5px 10px -5px'
 };
