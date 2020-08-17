@@ -11,6 +11,7 @@ export const StyledImageContainer = styled.div`
 export const StyledAddressCard = styled.div`
   width: 80%;
   margin: 20px auto 0 auto;
+  padding: 10px;
   text-align: center;
   border: 1px solid ${({ theme }) => theme.grey};
   border-radius: 10px;
