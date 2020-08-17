@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { useHistory } from 'react-router-dom';
 import { ADD_LISTING } from '../../util/mutations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
@@ -9,15 +10,17 @@ import {
   StyledForm,
   StyledFileBtn,
   StyledField,
-  StyledSubmit,
+  StyledSubmit
 } from './AddForm.styled';
 
 function AddForm() {
   const [formData, setFormData] = useState({});
 
   const [createListing] = useMutation(ADD_LISTING, {
-    onCompleted: listing => listing,
+    onCompleted: listing => listing
   });
+
+  const history = useHistory();
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -34,15 +37,19 @@ function AddForm() {
         input: {
           ...formData,
           longitude,
-          latitude,
-        },
-      },
+          latitude
+        }
+      }
     });
 
     // TODO: Push to added listing page
     // TODO: Add image upload
 
     setFormData({});
+
+    const { id } = createdListing.data.createListing;
+
+    history.push(`/listings/${id}`);
 
     return createdListing;
   };
