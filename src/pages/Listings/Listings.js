@@ -17,10 +17,11 @@ export default function Listings() {
       <h1 style={{ textAlign: 'center' }}>Listings</h1>
       {data.listings.map(listing => (
         <Link
-          to={`/${listing.id}`}
+          key={listing.id}
+          to={`/listings/${listing.id}`}
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
-          <Listing key={listing.id} listing={listing} />
+          <Listing listing={listing} />
         </Link>
       ))}
     </Layout>

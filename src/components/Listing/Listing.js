@@ -14,7 +14,7 @@ export default function Listing({ listing }) {
         <img src='https://dummyimage.com/200x150/000/fff' alt='Listing' />
       </StyledImageContainer>
       <StyledDetails>
-        <StyledLink to={`/${listing.id}`}>
+        <StyledLink to={`/listings/${listing.id}`}>
           <h3>{listing.title}</h3>
         </StyledLink>
         <StyledDescription>{`${listing.description.substring(
