@@ -8,6 +8,7 @@ import {
   StyledAddressCard,
   StyledSeparator
 } from './Listing.styled';
+import { formatNumber } from '../../util/functions';
 
 export default function Listing() {
   const { listingId } = useParams();
@@ -27,7 +28,9 @@ export default function Listing() {
     city,
     province,
     postalCode,
-    description
+    description,
+    disposition,
+    price
   } = data.listing;
 
   return (
@@ -38,6 +41,11 @@ export default function Listing() {
       <StyledAddressCard>
         <h1 style={{ fontSize: '16px' }}>{title}</h1>
         <p style={{ fontSize: '14px' }}>{description}</p>
+        <p styled={{ fontSize: '14px' }}>
+          {disposition === 'rent'
+            ? `$${formatNumber(price)}/mo`
+            : `$${formatNumber(price)}`}
+        </p>
         <StyledSeparator />
         <p style={{ fontSize: '14px' }}>{address1}</p>
         <p style={{ fontSize: '14px' }}>{address2}</p>

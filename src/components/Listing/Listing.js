@@ -4,8 +4,9 @@ import {
   StyledImageContainer,
   StyledLink,
   StyledDetails,
-  StyledDescription,
+  StyledDescription
 } from './Listing.styled';
+import { formatNumber } from '../../util/functions';
 
 export default function Listing({ listing }) {
   return (
@@ -21,6 +22,11 @@ export default function Listing({ listing }) {
           0,
           20
         )}...`}</StyledDescription>
+        <p style={{ fontSize: '14px' }}>
+          {listing.disposition === 'rent'
+            ? `$${formatNumber(listing.price)}/mo`
+            : `$${formatNumber(listing.price)}`}
+        </p>
         <p>{listing.address1}</p>
         <p>{listing.city}</p>
       </StyledDetails>

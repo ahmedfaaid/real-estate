@@ -11,6 +11,8 @@ export const LISTINGS = gql`
       province
       postalCode
       description
+      disposition
+      price
       longitude
       latitude
     }
@@ -28,6 +30,8 @@ export const LISTING = gql`
       province
       postalCode
       description
+      disposition
+      price
       longitude
       latitude
     }

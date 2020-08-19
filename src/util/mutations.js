@@ -10,6 +10,9 @@ export const ADD_LISTING = gql`
       city
       province
       postalCode
+      description
+      disposition
+      price
     }
   }
 `;
