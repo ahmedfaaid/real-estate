@@ -4,12 +4,13 @@ import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import { StyledMarker, StyledPopup } from './Map.styled';
+import { formatNumber } from '../../util/functions';
 
 function Map({ listings }) {
   const [viewport, setViewport] = useState({
     latitude: 43.653226,
     longitude: -79.3831843,
-    zoom: 12,
+    zoom: 12
   });
 
   const [selectedListing, setSelectedListing] = useState(null);
@@ -28,7 +29,7 @@ function Map({ listings }) {
         style={{
           position: 'absolute',
           right: '10px',
-          bottom: '10px',
+          bottom: '10px'
         }}
       >
         <NavigationControl showCompass={false} />
@@ -63,6 +64,11 @@ function Map({ listings }) {
             <p>{selectedListing.address1}</p>
             {selectedListing.address2 && <p>{selectedListing.address2}</p>}
             <p>{selectedListing.city}</p>
+            <p>
+              {selectedListing.disposition === 'rent'
+                ? `$${formatNumber(selectedListing.price)}/mo`
+                : `$${formatNumber(selectedListing.price)}`}
+            </p>
           </StyledPopup>
         </Popup>
       )}
