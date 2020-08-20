@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const GlobalStyles = createGlobalStyle`
   html, body {
@@ -24,3 +26,7 @@ export const theme = {
   grey: '#cccccc',
   shadow: '0 5px 10px -5px'
 };
+
+export const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.red};
+`;

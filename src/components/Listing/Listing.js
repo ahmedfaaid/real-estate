@@ -2,10 +2,10 @@ import React from 'react';
 import {
   StyledListing,
   StyledImageContainer,
-  StyledLink,
   StyledDetails,
   StyledDescription
 } from './Listing.styled';
+import { StyledLink } from '../../styles';
 import { formatNumber } from '../../util/functions';
 
 export default function Listing({ listing }) {

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const StyledListing = styled.div`
   display: flex;
@@ -15,10 +14,6 @@ export const StyledImageContainer = styled.div`
   img {
     width: 100px;
   }
-`;
-
-export const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.red};
 `;
 
 export const StyledDetails = styled.div`
