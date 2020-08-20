@@ -4,6 +4,7 @@ import ReactMapGL, { Marker, NavigationControl, Popup } from 'react-map-gl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import { StyledMarker, StyledPopup } from './Map.styled';
+import { StyledLink } from '../../styles';
 import { formatNumber } from '../../util/functions';
 
 function Map({ listings }) {
@@ -57,9 +58,13 @@ function Map({ listings }) {
           onClose={() => {
             setSelectedListing(null);
           }}
+          closeOnClick={false}
+          captureClick={false}
         >
           <StyledPopup>
-            <h3>{selectedListing.title}</h3>
+            <StyledLink to={`/listings/${selectedListing.id}`}>
+              <h3>{selectedListing.title}</h3>
+            </StyledLink>
             <h4>{selectedListing.description.substring(0, 20)}</h4>
             <p>{selectedListing.address1}</p>
             {selectedListing.address2 && <p>{selectedListing.address2}</p>}
