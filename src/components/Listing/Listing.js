@@ -8,12 +8,14 @@ import {
 import { StyledLink } from '../../styles';
 import { formatNumber } from '../../util/functions';
 
-export default function Listing({ listing, image }) {
-  // const baseUrl = 'http://localhost:4000/';
+export default function Listing({ listing }) {
   return (
     <StyledListing>
       <StyledImageContainer>
-        <img src={`http://localhost:4000/${image.path}`} alt='Listing' />
+        <img
+          src={`http://localhost:4000/${listing.image.path}`}
+          alt='Listing'
+        />
       </StyledImageContainer>
       <StyledDetails>
         <StyledLink to={`/listings/${listing.id}`}>
