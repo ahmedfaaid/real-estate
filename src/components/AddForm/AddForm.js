@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 import { ADD_LISTING } from '../../util/mutations';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImages } from '@fortawesome/free-solid-svg-icons';
+import { faImages, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { geocode } from '../../util/geocode';
 import {
   FormContainer,
@@ -15,6 +15,7 @@ import {
 
 function AddForm() {
   const [formData, setFormData] = useState({});
+  const [listingImage, setListingImage] = useState(null);
 
   const [createListing] = useMutation(ADD_LISTING, {
     onCompleted: listing => listing
@@ -30,19 +31,22 @@ function AddForm() {
   const handleSubmit = async event => {
     event.preventDefault();
 
+    console.log(listingImage);
+
     const [longitude, latitude] = await geocode(formData);
 
     const createdListing = await createListing({
       variables: {
+        image: listingImage,
         input: {
           ...formData,
+          price: parseFloat(parseFloat(formData.price).toFixed(2)),
           longitude,
           latitude
         }
       }
     });
 
-    // TODO: Push to added listing page
     // TODO: Add image upload
 
     setFormData({});
@@ -59,10 +63,15 @@ function AddForm() {
       <StyledForm onSubmit={handleSubmit}>
         <StyledFileBtn>
           <label htmlFor='image'>
-            <FontAwesomeIcon icon={faImages} />
-            <span>Add an image</span>
+            <FontAwesomeIcon icon={listingImage ? faCheckSquare : faImages} />
+            <span>{listingImage ? `Image Added` : `Add an image`}</span>
           </label>
-          <input type='file' name='image' id='image' />
+          <input
+            type='file'
+            name='image'
+            id='image'
+            onChange={e => setListingImage(e.target.files[0])}
+          />
         </StyledFileBtn>
         <StyledField>
           <label htmlFor='title'>Property Title</label>
@@ -111,6 +120,31 @@ function AddForm() {
             onChange={handleChange}
             placeholder='Postal/Zip Code'
           />
+          <StyledField>
+            <label htmlFor='Disposition'>Disposition</label>
+            <select
+              name='disposition'
+              id='disposition'
+              onChange={handleChange}
+              defaultValue=''
+            >
+              <option value='' disabled>
+                Select your option
+              </option>
+              <option value='rent'>Rental</option>
+              <option value='sale'>For Sale</option>
+            </select>
+          </StyledField>
+          <StyledField>
+            <label htmlFor='price'>Price</label>
+            <input
+              type='number'
+              name='price'
+              id='price'
+              placeholder='Enter price'
+              onChange={handleChange}
+            />
+          </StyledField>
         </StyledField>
         <StyledField>
           <label htmlFor='description'>Describe your property</label>

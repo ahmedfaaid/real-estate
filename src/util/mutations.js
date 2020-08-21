@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const ADD_LISTING = gql`
-  mutation CreateListing($input: ListingInput!) {
-    createListing(input: $input) {
+  mutation CreateListing($input: ListingInput!, $image: Upload!) {
+    createListing(input: $input, image: $image) {
       id
       title
       address1
@@ -13,6 +13,9 @@ export const ADD_LISTING = gql`
       description
       disposition
       price
+      image {
+        id
+      }
     }
   }
 `;
