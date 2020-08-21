@@ -11,7 +11,13 @@ export const StyledMarker = styled.button`
 `;
 
 export const StyledPopup = styled.div`
-  width: 300px;
+  width: 320px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-column-gap: 10px;
+  align-items: center;
+  border-radius: 20px;
 
   & h3 {
     font-size: 16px;

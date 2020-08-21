@@ -6,6 +6,7 @@ import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
 import { StyledMarker, StyledPopup } from './Map.styled';
 import { StyledLink } from '../../styles';
 import { formatNumber } from '../../util/functions';
+import { Link } from 'react-router-dom';
 
 function Map({ listings }) {
   const [viewport, setViewport] = useState({
@@ -62,18 +63,27 @@ function Map({ listings }) {
           captureClick={false}
         >
           <StyledPopup>
-            <StyledLink to={`/listings/${selectedListing.id}`}>
-              <h3>{selectedListing.title}</h3>
-            </StyledLink>
-            <h4>{selectedListing.description.substring(0, 20)}</h4>
-            <p>{selectedListing.address1}</p>
-            {selectedListing.address2 && <p>{selectedListing.address2}</p>}
-            <p>{selectedListing.city}</p>
-            <p>
-              {selectedListing.disposition === 'rent'
-                ? `$${formatNumber(selectedListing.price)}/mo`
-                : `$${formatNumber(selectedListing.price)}`}
-            </p>
+            <Link to={`/listings/${selectedListing.id}`}>
+              <img
+                src={`http://localhost:4000/${selectedListing.image.path}`}
+                alt='Listing'
+                style={{ width: '100%' }}
+              />
+            </Link>
+            <div>
+              <StyledLink to={`/listings/${selectedListing.id}`}>
+                <h3>{selectedListing.title}</h3>
+              </StyledLink>
+              <h4>{selectedListing.description.substring(0, 20)}</h4>
+              <p>{selectedListing.address1}</p>
+              {selectedListing.address2 && <p>{selectedListing.address2}</p>}
+              <p>{selectedListing.city}</p>
+              <p>
+                {selectedListing.disposition === 'rent'
+                  ? `$${formatNumber(selectedListing.price)}/mo`
+                  : `$${formatNumber(selectedListing.price)}`}
+              </p>
+            </div>
           </StyledPopup>
         </Popup>
       )}
