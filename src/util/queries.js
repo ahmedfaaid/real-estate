@@ -13,7 +13,10 @@ export const LISTINGS = gql`
       description
       disposition
       price
-      imageId
+      image {
+        id
+        path
+      }
       longitude
       latitude
     }
@@ -33,7 +36,10 @@ export const LISTING = gql`
       description
       disposition
       price
-      imageId
+      image {
+        id
+        path
+      }
       longitude
       latitude
     }

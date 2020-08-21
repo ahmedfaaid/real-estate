@@ -30,13 +30,14 @@ export default function Listing() {
     postalCode,
     description,
     disposition,
-    price
+    price,
+    image: { path }
   } = data.listing;
 
   return (
     <Layout>
       <StyledImageContainer>
-        <img src='https://dummyimage.com/600x400/000/fff' alt='Listing' />
+        <img src={`http://localhost:4000/${path}`} alt='Listing' />
       </StyledImageContainer>
       <StyledAddressCard>
         <h1 style={{ fontSize: '16px' }}>{title}</h1>
