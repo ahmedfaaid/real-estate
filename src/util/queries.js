@@ -13,6 +13,7 @@ export const LISTINGS = gql`
       description
       disposition
       price
+      imageId
       longitude
       latitude
     }
@@ -32,8 +33,27 @@ export const LISTING = gql`
       description
       disposition
       price
+      imageId
       longitude
       latitude
+    }
+  }
+`;
+
+export const IMAGES = gql`
+  query Images {
+    images {
+      id
+      path
+    }
+  }
+`;
+
+export const IMAGE = gql`
+  query Image($id: string) {
+    image(id: $id) {
+      id
+      path
     }
   }
 `;
