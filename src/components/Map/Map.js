@@ -21,7 +21,7 @@ function Map({ listings }) {
     <ReactMapGL
       {...viewport}
       width='100vw'
-      height='92vh'
+      height='100%'
       onViewportChange={nextViewport => setViewport(nextViewport)}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
       mapStyle='mapbox://styles/mapbox/streets-v11'

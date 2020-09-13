@@ -12,10 +12,12 @@ import {
   StyledField,
   StyledSubmit
 } from './AddForm.styled';
+import { Loading } from '../../styles';
 
 function AddForm() {
   const [formData, setFormData] = useState({});
   const [listingImage, setListingImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [createListing] = useMutation(ADD_LISTING, {
     onCompleted: listing => listing
@@ -33,6 +35,8 @@ function AddForm() {
   };
 
   const handleSubmit = async event => {
+    setLoading(true);
+
     event.preventDefault();
 
     const [longitude, latitude] = await geocode(formData);
@@ -57,8 +61,12 @@ function AddForm() {
 
     history.push(`/listings/${id}`);
 
+    setLoading(false);
+
     return createdListing;
   };
+
+  if (loading) return <Loading />;
 
   return (
     <FormContainer>

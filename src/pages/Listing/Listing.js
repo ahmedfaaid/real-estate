@@ -9,6 +9,7 @@ import {
   StyledSeparator
 } from './Listing.styled';
 import { formatNumber } from '../../util/functions';
+import { Loading } from '../../styles';
 
 export default function Listing() {
   const { listingId } = useParams();
@@ -17,7 +18,13 @@ export default function Listing() {
     variables: { id: listingId }
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <Layout>
+        <Loading />
+      </Layout>
+    );
+  }
 
   if (error) return <p>Error: {error.message}</p>;
 
