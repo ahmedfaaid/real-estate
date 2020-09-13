@@ -23,6 +23,10 @@ function AddForm() {
 
   const history = useHistory();
 
+  const handleImageChange = event => {
+    setListingImage(event.target.files[0]);
+  };
+
   const handleChange = event => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -30,8 +34,6 @@ function AddForm() {
 
   const handleSubmit = async event => {
     event.preventDefault();
-
-    console.log(listingImage);
 
     const [longitude, latitude] = await geocode(formData);
 
@@ -70,7 +72,7 @@ function AddForm() {
             type='file'
             name='image'
             id='image'
-            onChange={e => setListingImage(e.target.files[0])}
+            onChange={e => handleImageChange(e)}
           />
         </StyledFileBtn>
         <StyledField>
