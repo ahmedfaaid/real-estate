@@ -31,7 +31,7 @@ function Map({ listings }) {
         style={{
           position: 'absolute',
           right: '10px',
-          bottom: '10px'
+          bottom: '40px'
         }}
       >
         <NavigationControl showCompass={false} />
