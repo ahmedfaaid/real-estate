@@ -1,6 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
 import Header from './Header';
+
+const StyledMain = styled.main`
+  width: 100%;
+  height: calc(100vh - 64px);
+  position: relative;
+`;
 
 function Layout({ children }) {
   return (
@@ -30,9 +37,7 @@ function Layout({ children }) {
         <link rel='manifest' href='/site.webmanifest' />
       </Helmet>
       <Header />
-      <div style={{ width: '100%', height: '92vh', position: 'relative' }}>
-        {children}
-      </div>
+      <StyledMain>{children}</StyledMain>
     </>
   );
 }
