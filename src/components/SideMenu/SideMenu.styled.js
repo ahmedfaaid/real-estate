@@ -19,8 +19,12 @@ export const StyledSideMenu = styled.aside`
   transition: transform 0.3s ease-in-out;
 
   @media (min-width: 769px) {
-    width: 20%;
+    width: 340px;
     text-align: left;
+  }
+
+  ul {
+    padding: 0;
   }
 
   & li {
