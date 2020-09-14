@@ -12,7 +12,7 @@ function Map({ listings }) {
   const [viewport, setViewport] = useState({
     latitude: 43.653226,
     longitude: -79.3831843,
-    zoom: 12
+    zoom: 10
   });
 
   const [selectedListing, setSelectedListing] = useState(null);
