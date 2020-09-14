@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
 import { LISTINGS } from '../../util/queries';
 import Layout from '../../components/Layout';
 import Listing from '../../components/Listing/Listing';
 import { Loading } from '../../styles';
+import { StyledListingsContainer, StyledListingLink } from './Listings.styled';
 
 export default function Listings() {
   const { loading, error, data } = useQuery(LISTINGS);
@@ -22,15 +22,13 @@ export default function Listings() {
   return (
     <Layout>
       <h1 style={{ textAlign: 'center' }}>Listings</h1>
-      {data.listings.map(listing => (
-        <Link
-          key={listing.id}
-          to={`/listings/${listing.id}`}
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          <Listing listing={listing} />
-        </Link>
-      ))}
+      <StyledListingsContainer>
+        {data.listings.map(listing => (
+          <StyledListingLink key={listing.id} to={`/listings/${listing.id}`}>
+            <Listing listing={listing} />
+          </StyledListingLink>
+        ))}
+      </StyledListingsContainer>
     </Layout>
   );
 }

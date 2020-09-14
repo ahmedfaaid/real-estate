@@ -3,11 +3,14 @@ import styled from 'styled-components';
 export const StyledListing = styled.div`
   display: flex;
   align-items: center;
-  width: 90%;
   margin: 15px auto;
   padding: 20px;
   border-radius: 10px;
   box-shadow: ${({ theme }) => theme.shadow};
+
+  @media (min-width: 1025px) {
+    height: 100%;
+  }
 `;
 
 export const StyledImageContainer = styled.div`
