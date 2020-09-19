@@ -20,7 +20,7 @@ export default function Listing() {
 
   if (loading) {
     return (
-      <Layout>
+      <Layout page='Listing'>
         <Loading />
       </Layout>
     );
@@ -42,7 +42,7 @@ export default function Listing() {
   } = data.listing;
 
   return (
-    <Layout>
+    <Layout page={title}>
       <StyledImageContainer>
         <img src={`http://localhost:4000/${path}`} alt='Listing' />
       </StyledImageContainer>

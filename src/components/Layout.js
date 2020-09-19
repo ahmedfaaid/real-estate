@@ -9,11 +9,11 @@ const StyledMain = styled.main`
   position: relative;
 `;
 
-function Layout({ children }) {
+function Layout({ children, page }) {
   return (
     <>
       <Helmet>
-        <title>Real Estate</title>
+        <title>{page ? `${page} | Real Estate` : 'Real Estate'}</title>
       </Helmet>
       <Header />
       <StyledMain>{children}</StyledMain>

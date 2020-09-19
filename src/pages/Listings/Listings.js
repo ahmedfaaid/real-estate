@@ -11,7 +11,7 @@ export default function Listings() {
 
   if (loading) {
     return (
-      <Layout>
+      <Layout page='Listings'>
         <Loading />
       </Layout>
     );
@@ -20,7 +20,7 @@ export default function Listings() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <Layout>
+    <Layout page='Listings'>
       <h1 style={{ textAlign: 'center' }}>Listings</h1>
       <StyledListingsContainer>
         {data.listings.map(listing => (

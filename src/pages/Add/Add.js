@@ -4,7 +4,7 @@ import AddForm from '../../components/AddForm/AddForm';
 
 function Add() {
   return (
-    <Layout>
+    <Layout page='Add Listing'>
       <AddForm />
     </Layout>
   );

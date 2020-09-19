@@ -11,7 +11,7 @@ function Home() {
 
   if (loading) {
     return (
-      <Layout>
+      <Layout page='Home'>
         <Loading />
       </Layout>
     );
@@ -20,7 +20,7 @@ function Home() {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <Layout>
+    <Layout page='Home'>
       <Map listings={data.listings} />
       <PostButton />
     </Layout>
