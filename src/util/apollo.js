@@ -1,7 +1,12 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { createUploadLink } from 'apollo-upload-client';
 
-const link = createUploadLink({ uri: 'http://localhost:4000/graphql' });
+const link = createUploadLink({
+  uri:
+    process.env.NODE_ENV === 'production'
+      ? process.env.REAL_ESTATE_API
+      : 'http://localhost:4000/graphql'
+});
 
 export const client = new ApolloClient({
   link,
