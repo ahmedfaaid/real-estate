@@ -13,7 +13,8 @@ function Layout({ children }) {
   return (
     <>
       <Helmet>
-        <link
+        <title>Real Estate</title>
+        {/* <link
           href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap'
           rel='stylesheet'
         />
@@ -34,7 +35,7 @@ function Layout({ children }) {
           sizes='16x16'
           href='/favicon-16x16.png'
         />
-        <link rel='manifest' href='/site.webmanifest' />
+        <link rel='manifest' href='/site.webmanifest' /> */}
       </Helmet>
       <Header />
       <StyledMain>{children}</StyledMain>
