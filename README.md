@@ -1,8 +1,8 @@
 # TODO
 
 [x] - Geocode address to return long/lat
-[ ] - Seed DB
-[ ] - Push to added listing page
-[ ] - Add image upload
-[ ] - Add listings page
-[ ] - Add sidebar
+[x] - Seed DB
+[x] - Push to added listing page
+[x] - Add image upload
+[x] - Add listings page
+[x] - Add sidebar
