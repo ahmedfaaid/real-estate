@@ -44,7 +44,11 @@ export default function Listing() {
   return (
     <Layout page={title}>
       <StyledImageContainer>
-        <img src={`http://localhost:4000/${path}`} alt='Listing' />
+        {/* ternary for local db images that aren't on cloudinary */}
+        <img
+          src={path.includes('images') ? `http://localhost:4000/${path}` : path}
+          alt='Listing'
+        />
       </StyledImageContainer>
       <StyledAddressCard>
         <h1 style={{ fontSize: '16px' }}>{title}</h1>

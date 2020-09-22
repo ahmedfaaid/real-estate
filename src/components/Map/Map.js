@@ -64,8 +64,13 @@ function Map({ listings }) {
         >
           <StyledPopup>
             <Link to={`/listings/${selectedListing.id}`}>
+              {/* ternary for local db images that aren't on cloudinary */}
               <img
-                src={`http://localhost:4000/${selectedListing.image.path}`}
+                src={
+                  selectedListing.image.path.includes('images')
+                    ? `http://localhost:4000/${selectedListing.image.path}`
+                    : selectedListing.image.path
+                }
                 alt='Listing'
                 style={{ width: '100%' }}
               />

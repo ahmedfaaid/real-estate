@@ -12,8 +12,13 @@ export default function Listing({ listing }) {
   return (
     <StyledListing>
       <StyledImageContainer>
+        {/* ternary for local db images that aren't on cloudinary */}
         <img
-          src={`http://localhost:4000/${listing.image.path}`}
+          src={
+            listing.image.path.includes('images')
+              ? `http://localhost:4000/${listing.image.path}`
+              : listing.image.path
+          }
           alt='Listing'
         />
       </StyledImageContainer>
